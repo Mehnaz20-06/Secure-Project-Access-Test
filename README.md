@@ -40,6 +40,13 @@ Install these before running the project:
 - Node.js 18 or newer
 - npm
 - Visual Studio Code
+##Some snaps of the web page 
+<img width="920" height="454" alt="sign-in" src="https://github.com/user-attachments/assets/dccf02ab-fdae-4f7f-9829-5aeb0d0d3412" />
+<img width="799" height="464" alt="PM login" src="https://github.com/user-attachments/assets/eb2cdd30-4128-4c12-b69b-756a2ea21b1e" />
+<img width="764" height="458" alt="teammate login" src="https://github.com/user-attachments/assets/3027308a-c796-4c3c-8bd4-8e040346ca65" />
+
+
+
 
 ## Installation
 
