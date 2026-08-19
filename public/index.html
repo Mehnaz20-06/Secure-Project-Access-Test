@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Secure Project Access</title>
+<link rel="stylesheet" href="/styles.css" />
+</head>
+<body>
+<div id="app">
+  <header>
+    <h1>Secure Project Access</h1>
+  </header>
+
+  <section id="login-view">
+    <h2>Sign in</h2>
+    <form id="login-form">
+      <label>Email
+        <input type="email" id="email" required placeholder="PM1@elchai.com" />
+      </label>
+      <label>Password
+        <input type="password" id="password" required placeholder="123456" />
+      </label>
+      <button type="submit">Sign in</button>
+      <p id="login-error" class="error"></p>
+    </form>
+    <div class="demo-users">
+      <p>Demo accounts (password for all: <code>123456</code>):</p>
+      <ul>
+        <li>PM1@elchai.com &mdash; PM</li>
+        <li>PM2@elchai.com &mdash; PM</li>
+        <li>teammate1@elchai.com &mdash; Teammate</li>
+        <li>teammate2@elchai.com &mdash; Teammate</li>
+      </ul>
+    </div>
+  </section>
+
+  <section id="dashboard-view" hidden>
+    <div class="topbar">
+      <span id="who"></span>
+      <button id="logout-btn">Log out</button>
+    </div>
+
+    <!-- PM dashboard: Part 1 Company Projects, Part 2 Eligible Projects, Share (PM only) -->
+    <div id="pm-dashboard" hidden>
+      <div class="grid">
+        <div class="panel">
+          <h2>Part 1 &middot; Company Projects</h2>
+          <ul id="company-projects" class="list"></ul>
+        </div>
+        <div class="panel">
+          <h2>Part 2 &middot; Eligible Projects</h2>
+          <ul id="pm-eligible-projects" class="list"></ul>
+        </div>
+      </div>
+      <div class="share-box">
+        <h3>Share a project</h3>
+        <div class="share-controls">
+          <select id="share-project-select"></select>
+          <select id="share-teammate-select">
+            <option value="teammate1@elchai.com">teammate1@elchai.com</option>
+            <option value="teammate2@elchai.com">teammate2@elchai.com</option>
+          </select>
+          <button id="share-btn">Share</button>
+        </div>
+        <p id="share-result"></p>
+      </div>
+    </div>
+
+    <!-- Teammate dashboard: Part 1 Invites, Part 2 Eligible Projects, Share disabled -->
+    <div id="teammate-dashboard" hidden>
+      <div class="grid">
+        <div class="panel">
+          <h2>Part 1 &middot; Project Invites</h2>
+          <ul id="invites" class="list"></ul>
+        </div>
+        <div class="panel">
+          <h2>Part 2 &middot; Eligible Projects</h2>
+          <ul id="teammate-eligible-projects" class="list"></ul>
+        </div>
+      </div>
+      <div class="share-box disabled">
+        <h3>Share a project</h3>
+        <button id="teammate-share-btn" disabled>Share (PMs only)</button>
+        <p class="hint">Only a project's owning PM can share it. Attempting to share is blocked with a 403.</p>
+        <p id="teammate-share-result"></p>
+      </div>
+    </div>
+
+    <div class="panel">
+      <h2>Direct access check</h2>
+      <p class="hint">Try opening a project by ID directly, bypassing the dashboard lists, to confirm the server enforces access control.</p>
+      <div class="share-controls">
+        <input id="direct-project-id" placeholder="e.g. p1 or p2" />
+        <button id="direct-access-btn">Open project</button>
+      </div>
+      <p id="direct-access-result"></p>
+    </div>
+  </section>
+</div>
+<script src="/app.js"></script>
+</body>
+</html>
